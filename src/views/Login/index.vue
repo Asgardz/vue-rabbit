@@ -92,10 +92,10 @@ const doLogin = () => {
               status-icon
             >
               <el-form-item prop="account" label="账户">
-                <el-input v-model="form.account" />
+                <el-input v-model="form.account"  value="heima287" />
               </el-form-item>
               <el-form-item prop="password" label="密码">
-                <el-input v-model="form.password" />
+                <el-input v-model="form.password"  value="hm#qd@23!" />
               </el-form-item>
               <el-form-item prop="agree" label-width="22px">
                 <el-checkbox size="large" v-model="form.agree">
