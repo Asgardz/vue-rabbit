@@ -2,10 +2,14 @@
 //表单校验（账号名+密码）
 
 import { ref } from "vue"
-import { loginAPI } from '@/apis/user'
 import 'element-plus/theme-chalk/el-message.css'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
+
+ import { useUserStore } from '@/stores/user' 
+
+ const userStore = useUserStore()
+
 
 //1.准备表单对象
 const form = ref({
@@ -44,7 +48,7 @@ const doLogin = () => {
    const {account,password} = form.value
    formRef.value.validate( async (valid) => {
     if(valid){
-        const res = await loginAPI({account, password})
+        await userStore.getUserInfo({account,password})
         //1.提示用户
         ElMessage({ type: 'success', message: '登录成功'})
         //2.跳转首页
